@@ -69,33 +69,39 @@ function App() {
               </span>
             </div>
             <div className="row gap-5 justify-content-center">
-              {todoList.length>0? todoList
-                .filter((todo, id) => {
-                  if (filter === "incomplete") {
-                    return todo.status === filter;
-                  }
+              {todoList.length > 0 ? (
+                todoList
+                  .filter((todo, id) => {
+                    if (filter === "incomplete") {
+                      return todo.status === filter;
+                    }
 
-                  if (filter === "completed") {
-                    return todo.status === filter;
-                  }
-                  return todo;
-                })
-                .map((todo, id) => {
-                  return (
-                    <Todocard
-                      key={id}
-                      idx={id}
-                      todo={todo}
-                      isEdit={isEdit}
-                      setIsEdit={setIsEdit}
-                      setInput={setInput}
-                      handleStatus={handleStatus}
-                      setEditId={setEditId}
-                      handleDelete={handleDelete}
-                    />
-                  );
-                }):  <p> Todo not available </p>
-                }
+                    if (filter === "completed") {
+                      return todo.status === filter;
+                    }
+                    return todo;
+                  })
+                  .map((todo, id) => {
+                    return (
+                      <Todocard
+                        key={id}
+                        idx={id}
+                        todo={todo}
+                        isEdit={isEdit}
+                        setIsEdit={setIsEdit}
+                        setInput={setInput}
+                        handleStatus={handleStatus}
+                        setEditId={setEditId}
+                        handleDelete={handleDelete}
+                      />
+                    );
+                  })
+              ) : (
+                <p className="text-center  fs-4 fw-bold">
+                  {" "}
+                  Todo not available{" "}
+                </p>
+              )}
             </div>
           </div>
         </div>

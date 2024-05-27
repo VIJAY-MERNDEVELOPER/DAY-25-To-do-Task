@@ -69,7 +69,7 @@ function App() {
               </span>
             </div>
             <div className="row gap-5 justify-content-center">
-              {todoList
+              {todoList.length>0? todoList
                 .filter((todo, id) => {
                   if (filter === "incomplete") {
                     return todo.status === filter;
@@ -94,7 +94,8 @@ function App() {
                       handleDelete={handleDelete}
                     />
                   );
-                })}
+                }):  <p> Todo not available </p>
+                }
             </div>
           </div>
         </div>
